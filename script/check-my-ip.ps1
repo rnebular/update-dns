@@ -2,9 +2,9 @@
 # Authentication with AWS setup using an IAM user and SSH keys.
 
 # static variables
-$all_records = "home","rdp","vpn"
-$zone_name = "8dot3.net"
-$ZONE_ID = "Z3E2OKTW27GOK3"
+$all_records = "record1","record2","record3" #can be a single record or multiple
+$zone_name = "<Zone_suffix>"
+$ZONE_ID = "<Zone_ID>"
 
 # AWS tools for Powershell, full module
 Import-Module AWSPowershell.NetCore
