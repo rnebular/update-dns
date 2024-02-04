@@ -7,7 +7,7 @@ Scripting to update my home DNS records in AWS Route53 due to dynamic WAN IP cha
 
 ## usage
 1. Copy the script (script/check-my-ip.ps1) to your local user profile folder `C:\Users\<username>\`.
-1. Edit the script, changing "<username>" to an actual local user account.
+1. Edit the script, changing "`<username>`" to an actual local user account.
 1. From a PowerShell prompt, simply run the script.
 `C:\Users\<username>\check-my-ip.ps1`
 
