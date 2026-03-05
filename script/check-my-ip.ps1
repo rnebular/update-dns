@@ -16,7 +16,7 @@
 $RecordNames = "record1","record2","record3" #can be a single record or multiple
 $zone_name = "<Zone_suffix>"
 $ZONE_ID = "<Zone_ID>"
-$log_file = "C:\Logs\check-my-ip.log"
+$log_file = "C:\<checkmyip-folder>\logs\check-my-ip.log"
 
 # AWS tools for Powershell, full module.
 # Can be changed to the `AWSPowerShell.Tools.common` and `AWSPowerShell.Tools.Route53` if desired.
@@ -36,6 +36,8 @@ if ((Test-Path -Path "source\homelab-functions-main")) {
 if (!(Test-Path -Path "source")) {
     New-Item -ItemType Directory -Path "source"
 }
+
+$log_file = "$(Get-Location)\logs\$log_name"
 
 # download latest homelab functions from github and unzip to source folder
 $dl_path = "https://github.com/rnebular/homelab-functions/archive/refs/heads/main.zip"
