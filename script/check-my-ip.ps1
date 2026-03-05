@@ -9,6 +9,9 @@
 # the environment variables $env:EMAIL_USERNAME and $env:EMAIL_APP_PASSWORD must be set to a valid Gmail address and app password.
 # REF: https://support.google.com/accounts/answer/185833?hl=en
 
+# $env:EMAIL_USERNAME = "<email_address>"
+# $env:EMAIL_APP_PASSWORD = "<app_password>"
+
 # static variables
 $RecordNames = "record1","record2","record3" #can be a single record or multiple
 $zone_name = "<Zone_suffix>"
