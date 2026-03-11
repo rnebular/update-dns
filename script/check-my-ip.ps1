@@ -59,6 +59,16 @@ if (!$env:EMAIL_USERNAME -or !$env:EMAIL_APP_PASSWORD) {
 }
 
 Write-LogEntry "---------------------------------" $log_file
+
+# rotate the log file if it's midnight
+$current_time = Get-Date
+if ($current_time.Hour -eq 0 -and $current_time.Minute -lt 30) {
+    Write-LogEntry "Time to rotate the log file." $log_file
+    Invoke-LogRotation -logFile $log_file
+} else {
+    Write-LogEntry "Not time to rotate log file." $log_file
+}
+
 Write-LogEntry "New execution, will check current external IP address of the Router and update Route53 if needed." $log_file
 Write-LogEntry "Current external IP: $(Invoke-WebRequest -UseBasicParsing -Uri 'http://myexternalip.com/raw')" $log_file
 
