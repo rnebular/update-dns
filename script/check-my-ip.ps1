@@ -60,11 +60,13 @@ if (!$env:EMAIL_USERNAME -or !$env:EMAIL_APP_PASSWORD) {
 
 Write-LogEntry "---------------------------------" $log_file
 
-# rotate the log file if it's midnight
+# rotate the log file once a day after 1am
 $current_time = Get-Date
-if ($current_time.Hour -eq 0 -and $current_time.Minute -lt 30) {
+if ($current_time.Hour -eq 1 -and $current_time.Minute -lt 30) {
     Write-LogEntry "Time to rotate the log file." $log_file
-    Invoke-LogRotation -logFile $log_file
+    Set-Location -Path "logs"
+    Invoke-LogRotation -logFile $log_name
+    Set-Location -Path ".."
 } else {
     Write-LogEntry "Not time to rotate log file." $log_file
 }
